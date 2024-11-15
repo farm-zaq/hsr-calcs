@@ -1,0 +1,44 @@
+{
+  "feixiao": {
+    "ult": {
+      "concerto": 3
+    },
+    "skill": {
+      "concerto": 2,
+      "": 1
+    },
+    "fua": {
+      "concerto": 5,
+      "": 1
+    }
+  },
+  "topaz": {
+    "skill": {
+      "concerto": 2,
+      "": 1
+    },
+    "fua": {
+      "concerto": 4,
+      "concerto,windfall": 1,
+      "": 1
+    }
+  },
+  "aven": {
+    "basic": {
+      "concerto": 2,
+      "": 1
+    },
+    "fua": {
+      "concerto": 6,
+      "": 1
+    },
+    "ult": {
+      "concerto": 2
+    }
+  },
+  "robin": {
+    "ult": {
+      "concerto": 27
+    }
+  }
+}

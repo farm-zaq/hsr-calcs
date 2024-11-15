@@ -149,6 +149,10 @@
     },
     "leverage": {
       "crit_rate": 44
+    },
+    "windfall": {
+      "all_type_dmg_mult": 150,
+      "crit_dmg": 25
     }
   },
   "buff_applications": {
@@ -164,7 +168,8 @@
       "fua": [],
       "concerto": ["concerto"],
       "concerto_fua": ["flourish"],
-      "concerto_basic": ["flourish"]
+      "concerto_basic": ["flourish"],
+      "windfall": ["windfall"]
     },
     "robin": {
       "base": ["fleet", "unjust_debuff"],
