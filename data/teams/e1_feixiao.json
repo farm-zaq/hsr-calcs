@@ -1,0 +1,14 @@
+{
+  "buffs": {
+    "quell": {
+      "special_mult": 30.7
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "concerto_ult": ["quell"]
+    }
+  },
+  "name": "E1 Feixiao",
+  "cost": 86
+}

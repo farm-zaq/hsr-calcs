@@ -1,0 +1,28 @@
+{
+  "buffs": {
+    "poised": {
+      "crit_dmg": 20
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "base": ["poised"]
+    },
+    "topaz": {
+      "base": ["poised"]
+    }
+  },
+  "buff_removals": {
+    "robin": {
+      "ult": "journey"
+    }
+  },
+  "stat_replacements": {
+    "robin": {
+      "base_atk": 1073,
+      "atk": 3765
+    }
+  },
+  "name": "S2 Poised",
+  "cost": 0
+}

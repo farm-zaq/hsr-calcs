@@ -1,0 +1,21 @@
+{
+  "buffs": {
+    "future_market": {
+      "crit_dmg": 50
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "fua": ["future_market"],
+      "concerto_ult": ["future_market"]
+    },
+    "topaz": {
+      "base": ["future_market"]
+    },
+    "aven": {
+      "fua": ["future_market"]
+    }
+  },
+  "name": "E1 Topaz",
+  "cost": 86
+}

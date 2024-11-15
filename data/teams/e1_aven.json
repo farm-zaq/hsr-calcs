@@ -1,0 +1,20 @@
+{
+  "buffs": {
+    "prisoners": {
+      "crit_dmg": 20
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "base": ["prisoners"]
+    },
+    "topaz": {
+      "base": ["prisoners"]
+    },
+    "aven": {
+      "base": ["prisoners"]
+    }
+  },
+  "name": "E1 Aven\t",
+  "cost": 86
+}

@@ -1,13 +1,6 @@
 import copy
-from base_team import base_team
-from s1_aven import s1_aven_team
-from s1_aven_ss import s1_aven_team_ss
-from e1_robin import e1_robin_team
-from e1_aven import e1_aven_team
-from s1_feixiao import s1_feixiao_team
-from e1_feixiao import e1_feixiao_team
-from st_feixiao import topaz_cone_team
-from e1_topaz import e1_topaz_team
+import json
+import os
 
 #TODO": technique
 #TODO: windfall
@@ -115,16 +108,47 @@ def buff(char, buffs):
         buffed_char[key] += buff[key]
   return buffed_char
 
-def team_damage(team_obj):
-  robin = team_obj["robin"]
-  robin_buffs = team_obj["robin_buffs"]
-  feixiao = team_obj["feixiao"]
-  feixiao_buffs = team_obj["feixiao_buffs"]
-  topaz = team_obj["topaz"]
-  topaz_buffs = team_obj["topaz_buffs"]
-  aven = team_obj["aven"]
-  aven_first_buffs = team_obj["aven_first_buffs"]
-  aven_buffs = team_obj["aven_buffs"]
+def pull_stats(base_data, upgrade_data, name):
+  stats = base_data["stats"][name]
+  if "stat_replacements" in upgrade_data:
+    if name in upgrade_data["stat_replacements"]:
+      for stat_name in upgrade_data["stat_replacements"][name]:
+        stats[stat_name] = upgrade_data["stat_replacements"][name][stat_name]
+  return stats
+
+def pull_buffs(base_data, upgrade_data, name):
+  buffs = copy.deepcopy(base_data["buff_applications"][name])
+
+  for buff_group in buffs:
+    buff_group_buffs = []
+    for buff_name in buffs[buff_group]:
+      removed_buff = False
+      if "buff_removals" in upgrade_data:
+        if name in upgrade_data["buff_removals"]:
+          if buff_group in upgrade_data["buff_removals"][name]:
+            if buff_name in upgrade_data["buff_removals"][name][buff_group]:
+              removed_buff = True
+      if not removed_buff:
+        buff_group_buffs.append(base_data["buffs"][buff_name])
+    buffs[buff_group] = buff_group_buffs
+
+  if "buff_applications" in upgrade_data:
+    if name in upgrade_data["buff_applications"]:
+      for buff_group in upgrade_data["buff_applications"][name]:
+        for buff_name in upgrade_data["buff_applications"][name][buff_group]:
+          buffs[buff_group].append(upgrade_data["buffs"][buff_name])
+
+  return buffs
+
+def team_damage(base_data, upgrade_data):
+  robin = pull_stats(base_data, upgrade_data, "robin")
+  robin_buffs = pull_buffs(base_data, upgrade_data, "robin")
+  feixiao = pull_stats(base_data, upgrade_data, "feixiao")
+  feixiao_buffs = pull_buffs(base_data, upgrade_data, "feixiao")
+  topaz = pull_stats(base_data, upgrade_data, "topaz")
+  topaz_buffs = pull_buffs(base_data, upgrade_data, "topaz")
+  aven = pull_stats(base_data, upgrade_data, "aven")
+  aven_buffs = pull_buffs(base_data, upgrade_data, "aven")
 
   robin_ult_dmg = calculate_character_damage(robin, robin_buffs, "ult", True)
 
@@ -139,14 +163,10 @@ def team_damage(team_obj):
   topaz_skill_fua_dmg = calculate_character_damage(topaz, topaz_buffs, "fua", False)
   topaz_concerto_skill_fua_dmg = calculate_character_damage(topaz, topaz_buffs, "fua", True)
 
-  aven_basic_dmg_first = calculate_character_damage(aven, aven_first_buffs, "basic", False)
-  aven_basic_dmg_second = calculate_character_damage(aven, aven_buffs, "basic", False)
-  aven_ult_dmg_first = calculate_character_damage(aven, aven_first_buffs, "ult", False)
-  aven_ult_dmg_second = calculate_character_damage(aven, aven_buffs, "ult", False)
-  aven_fua_first = calculate_character_damage(aven, aven_first_buffs, "fua", False)
-  aven_concerto_fua_first = calculate_character_damage(aven, aven_first_buffs, "fua", True)
-  aven_fua_second = calculate_character_damage(aven, aven_buffs, "fua", False)
-  aven_concerto_fua_second = calculate_character_damage(aven, aven_buffs, "fua", True)
+  aven_basic_dmg = calculate_character_damage(aven, aven_buffs, "basic", False)
+  aven_ult_dmg = calculate_character_damage(aven, aven_buffs, "ult", False)
+  aven_fua = calculate_character_damage(aven, aven_buffs, "fua", False)
+  aven_concerto_fua = calculate_character_damage(aven, aven_buffs, "fua", True)
 
   feixiao_dmg = \
     feixiao_skill_dmg * 2 + \
@@ -162,20 +182,16 @@ def team_damage(team_obj):
     topaz_concerto_skill_fua_dmg * 12 \
 
   aven_dmg = \
-    aven_basic_dmg_first * 3 + \
-    aven_basic_dmg_second * 3 + \
-    aven_ult_dmg_first +  \
-    aven_ult_dmg_second + \
-    aven_fua_first * 2 + \
-    aven_concerto_fua_first * 2 + \
-    aven_fua_second * 2 + \
-    aven_concerto_fua_second * 2 \
+    aven_basic_dmg * 6 + \
+    aven_ult_dmg * 2 + \
+    aven_fua * 4 + \
+    aven_concerto_fua * 4
     
   robin_dmg = robin_ult_dmg * 44
 
   total_dmg = feixiao_dmg + topaz_dmg + aven_dmg + robin_dmg
 
-  print(f"{team_obj['name']}:\t{total_dmg}")
+  print(f"{upgrade_data['name']}\t{total_dmg}")
   print(f"Feixiao:\t{feixiao_dmg}\t{feixiao_dmg / total_dmg * 100}")
   print(f"Topaz:\t\t{topaz_dmg}\t{topaz_dmg / total_dmg * 100}")
   print(f"Robin:\t\t{robin_dmg}\t{robin_dmg / total_dmg * 100}")
@@ -188,21 +204,33 @@ def team_damage(team_obj):
     "topaz_dmg": topaz_dmg,
     "aven_dmg": aven_dmg,
     "robin_dmg": robin_dmg,
-    "cost": team_obj["cost"],
-    "name": team_obj["name"],
+    "cost": upgrade_data["cost"],
+    "name": upgrade_data["name"],
   }
 
-def team_damages(teams):
+teams_folder = "data/teams"
+
+with open(f'{teams_folder}/base_team.json', 'r') as file:
+  base_data = json.load(file)
+
+with open('data/teams/no_upgrades.json', 'r') as file:
+  upgrade_data = json.load(file)
+
+def team_damages():
   damages = []
-  for team in teams:
-    damages.append(team_damage(team))
+  with open(f'{teams_folder}/base_team.json', 'r') as file:
+    base_data = json.load(file)
+  for filename in os.listdir(teams_folder):
+    if filename != "base_team.json":
+      with open(f'data/teams/{filename}', 'r') as file:
+        upgrade_data = json.load(file)
+      damages.append(team_damage(copy.deepcopy(base_data), upgrade_data))
   return damages
 
-# teams = [s1_aven_team, s1_aven_team_ss]
-teams = [base_team, e1_robin_team, s1_aven_team, e1_aven_team, s1_feixiao_team, e1_feixiao_team, topaz_cone_team, e1_topaz_team]
-damages = team_damages(teams)
+damages = team_damages()
 
 def print_damage(damages):
+  damages = sorted(damages, key=lambda x: x["total_dmg"])
   clean_damages = []
   for damage in damages:
     cost = damage["cost"]
@@ -225,12 +253,5 @@ def print_damage(damages):
     print(f"{name}\t{int(damage_num)}\t\t{percent_increase}\t\t{increase_per_cost}")
 
 print_damage(damages)
-
-# print(f"Total:\t{total_dmg}")
-# print(f"Feixiao:\t{feixiao_dmg}\t{feixiao_dmg / total_dmg * 100}")
-# print(f"Topaz:\t\t{topaz_dmg}\t{topaz_dmg / total_dmg * 100}")
-# print(f"Robin:\t\t{robin_dmg}\t{robin_dmg / total_dmg * 100}")
-# print(f"Aven:\t\t{aven_dmg}\t{aven_dmg / total_dmg * 100}")
-
 
 

@@ -1,0 +1,31 @@
+{
+  "buffs": {
+    "worrisome": {
+      "all_type_dmg_mult": 30
+    },
+    "tame": {
+    }
+  },
+  "stat_replacements": {
+    "feixiao": {
+      "atk": 3416,
+      "base_atk": 1183,
+      "crit_rate": 90.8
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "fua": ["worrisome"],
+      "concerto_ult": ["worrisome"],
+      "base": ["tame"]
+    },
+    "topaz": {
+      "base": ["tame"]
+    },
+    "aven": {
+      "base": ["tame"]
+    }
+  },
+  "name": "Topaz Sig",
+  "cost": 61
+}

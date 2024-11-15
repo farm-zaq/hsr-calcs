@@ -1,0 +1,24 @@
+{
+  "buffs": {
+    "smiles": {
+      "crit_dmg": 20,
+      "res_pen": 24
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "concerto": ["smiles"]
+    },
+    "topaz": {
+      "concerto": ["smiles"]
+    },
+    "aven": {
+      "concerto": ["smiles"]
+    },
+    "robin": {
+      "concerto": ["smiles"]
+    }
+  },
+  "name": "E1 Robin",
+  "cost": 86
+}

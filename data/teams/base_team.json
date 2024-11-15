@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "feixiao": {
+      "base_atk": 1130,
+      "fua_scaling": 110,
+      "fua_extra": 0,
+      "skill_scaling": 200,
+      "skill_extra": 0,
+      "ult_scaling": 700,
+      "ult_extra": 0,
+      "extra_mult": 0,
+    
+      "atk": 3283,
+      "scaling_attr": "atk",
+      "crit_dmg": 113.5,
+      "crit_rate": 89.8,
+      "elemental_dmg_mult": 38.8,
+      "all_type_dmg_mult": 0,
+      "def_shred": 0,
+      "res": 20,
+      "res_pen": 0,
+      "elemental_vuln": 0,
+      "all_vuln": 0,
+      "reductions": [10],
+      "special_mult": 0
+    },
+    "topaz": {
+      "base_atk": 1097,
+      "basic_scaling": 100,
+      "basic_extra": 0,
+      "fua_scaling": 150,
+      "fua_extra": 0,
+      "skill_scaling": 150,
+      "skill_extra": 0,
+      "extra_mult": 0,
+    
+      "atk": 2185,
+      "scaling_attr": "atk",
+      "crit_dmg": 132.9,
+      "crit_rate": 82.1,
+      "elemental_dmg_mult": 61.2,
+      "all_type_dmg_mult": 0,
+      "def_shred": 0,
+      "res": 20,
+      "res_pen": 0,
+      "elemental_vuln": 0,
+      "all_vuln": 0,
+      "reductions": [10]
+    },
+    "robin": {
+      "base_atk": 1116,
+      "ult_scaling": 120,
+      "ult_extra": 0,
+      "extra_mult": 0,
+    
+      "atk": 4060,
+      "scaling_attr": "atk",
+      "crit_dmg": 150,
+      "crit_rate": 100,
+      "elemental_dmg_mult": 0,
+      "all_type_dmg_mult": 0,
+      "def_shred": 0,
+      "res": 20,
+      "res_pen": 0,
+      "elemental_vuln": 0,
+      "all_vuln": 0,
+      "reductions": [10]
+    },
+    "aven": {
+      "base_atk": 0,
+      "base_defe": 1316,
+      "fua_scaling": 175,
+      "fua_extra": 0,
+      "basic_scaling": 100,
+      "basic_extra": 0,
+      "ult_scaling": 270,
+      "ult_extra": 0,
+      "extra_mult": 0,
+    
+      "atk": 0,
+      "defe": 3842,
+      "scaling_attr": "defe",
+      "crit_dmg": 143.3,
+      "crit_rate": 50.3,
+      "elemental_dmg_mult": 53.2,
+      "all_type_dmg_mult": 0,
+      "def_shred": 0,
+      "res": 20,
+      "res_pen": 0,
+      "elemental_vuln": 0,
+      "all_vuln": 0,
+      "reductions": [10]
+    }
+  },
+  "buffs": {
+    "thunderhunt": {
+      "all_type_dmg_mult": 60
+    },
+    "formshift": {
+      "crit_dmg": 36
+    },
+    "boltcatch": {
+      "atk_percent": 48
+    },
+    "valorous": {
+      "all_type_dmg_mult": 36
+    },
+    "duran": {
+      "crit_dmg": 25
+    },
+    "duran_fua": {
+      "all_type_dmg_mult": 25
+    },
+    "proof": {
+      "all_vuln": 50
+    },
+    "swordplay": {
+      "all_type_dmg_mult": 28
+    },
+    "duke_2": {
+      "all_type_dmg_mult": 20
+    },
+    "duke_4": {
+      "atk_percent": 24
+    },
+    "aria": {
+      "all_type_dmg_mult": 50
+    },
+    "tonal": {
+      "crit_dmg": 20
+    },
+    "flourish": {
+      "crit_dmg": 25
+    },
+    "fleet": {
+      "atk_percent": 8
+    },
+    "journey": {
+      "all_type_dmg_mult": 30
+    },
+    "unjust": {
+      "crit_dmg": 40
+    },
+    "unjust_debuff": {
+      "all_vuln": 10
+    },
+    "concerto": {
+      "atk": 1125.68
+    },
+    "leverage": {
+      "crit_rate": 44
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "base": ["thunderhunt", "boltcatch", "duran", "aria", "tonal", "fleet", "unjust_debuff"],
+      "fua": ["formshift", "duran_fua", "proof"],
+      "concerto": ["concerto"],
+      "concerto_fua": ["flourish"],
+      "concerto_ult": ["valorous", "formshift", "duran_fua", "proof", "flourish"]
+    },
+    "topaz": {
+      "base": ["duran", "duran_fua", "proof", "swordplay", "duke_2", "duke_4", "aria", "tonal", "fleet", "unjust_debuff"],
+      "fua": [],
+      "concerto": ["concerto"],
+      "concerto_fua": ["flourish"],
+      "concerto_basic": ["flourish"]
+    },
+    "robin": {
+      "base": ["fleet", "unjust_debuff"],
+      "ult": ["journey"],
+      "concerto": ["concerto"]
+    },
+    "aven": {
+      "base": ["duran", "aria", "tonal", "unjust", "leverage", "unjust_debuff"],
+      "fua": ["duran_fua", "proof", "duke_2"],
+      "concerto": ["concerto"],
+      "concerto_fua": ["flourish"]
+    }
+  }
+}

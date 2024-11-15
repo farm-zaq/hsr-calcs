@@ -1,0 +1,21 @@
+{
+  "buffs": {
+    "luminflux": {
+      "def_shred": 54
+    }
+  },
+  "stat_replacements": {
+    "feixiao": {
+      "atk": 3548,
+      "base_atk": 1236,
+      "crit_rate": 88.8
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "concerto_ult": ["luminflux"]
+    }
+  },
+  "name": "S1 Feixiao",
+  "cost": 61
+}
