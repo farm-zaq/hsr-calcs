@@ -16,11 +16,11 @@ def calculate_damage(
   elemental_vuln, all_vuln,
   reductions,
   special_mult
-  ):
+):
   base_dmg = (scaling_mult + extra_mult) / 100 * scaling_attr + extra_dmg
   crit_mult = 1 + crit_dmg / 100
   dmg_mult = 1 + elemental_dmg_mult / 100 + all_type_dmg_mult / 100
-  def_mult = (80.0 + 20.0) / ((82.0 + 20.0) * (1.0 - def_shred/100) + 80.0 + 20.0)
+  def_mult = (80.0 + 20.0) / ((95.0 + 20.0) * (1.0 - def_shred/100) + 80.0 + 20.0)
   res_mult = 1 - res / 100 + res_pen / 100
   vuln_mult = 1 + elemental_vuln / 100 + all_vuln / 100
   reduction_mult = 1
@@ -39,7 +39,7 @@ def calculate_average_dmg(
   elemental_vuln, all_vuln,
   reductions,
   special_mult
-  ):
+):
   crit_damage = min(crit_rate / 100, 1) * calculate_damage(scaling_mult, extra_mult, scaling_attr, extra_dmg, crit_dmg, elemental_dmg_mult, all_type_dmg_mult, def_shred, res, res_pen, elemental_vuln, all_vuln, reductions, special_mult)
   no_crit_damage = max((1 - crit_rate / 100 ), 0) * calculate_damage(scaling_mult, extra_mult, scaling_attr, extra_dmg, 0, elemental_dmg_mult, all_type_dmg_mult, def_shred, res, res_pen, elemental_vuln, all_vuln, reductions, special_mult)
   dmg = crit_damage + no_crit_damage

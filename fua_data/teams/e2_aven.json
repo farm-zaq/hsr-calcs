@@ -1,0 +1,26 @@
+{
+  "buffs": {
+    "prisoners": {
+      "crit_dmg": 20
+    },
+    "bounded": {
+      "res_pen": 12
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "base": ["prisoners", "bounded"]
+    },
+    "topaz": {
+      "base": ["prisoners", "bounded"]
+    },
+    "aven": {
+      "base": ["prisoners", "bounded"]
+    },
+    "robin": {
+      "base": ["bounded"]
+    }
+  },
+  "name": "E2 Aven\t",
+  "cost": 174
+}
