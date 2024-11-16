@@ -5,7 +5,7 @@ import os
 #TODO": technique
 #TODO: Unnerved
 #TODO: robin basic
-#TODO: Cruise atk
+#TODO: Cruise atk, CR
 
 def calculate_damage(
   scaling_mult, extra_mult, scaling_attr, extra_dmg,
@@ -202,15 +202,24 @@ def team_damages():
 damages = team_damages()
 
 def print_damage(damages):
-  damages = sorted(damages, key=lambda x: x["total_dmg"])
+
+  for i in range(len(damages)):
+    if damages[i]["name"] == "No Upgrades":
+      temp = damages[0]
+      damages[0] = damages[i]
+      damages[i] = temp
+      break
+
+  base_damage = damages[0]['total_dmg']
+
   clean_damages = []
   for damage in damages:
     cost = damage["cost"]
     name = damage["name"]
     damage = damage["total_dmg"]
-    percent_increase = int(100*damage/damages[0]['total_dmg'])
+    percent_increase = int(100*damage/base_damage)
     if cost:
-      increase_per_cost = (100*damage/damages[0]['total_dmg'] - 100) / cost
+      increase_per_cost = (100*damage/base_damage - 100) / cost
     else:
       increase_per_cost = 0
     clean_damages.append([name, damage, percent_increase, increase_per_cost])

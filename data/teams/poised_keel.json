@@ -1,0 +1,41 @@
+{
+  "buffs": {
+    "poised": {
+      "crit_dmg": 20
+    },
+    "keel": {
+      "crit_dmg": 10
+    }
+  },
+  "buff_applications": {
+    "feixiao": {
+      "base": ["poised", "keel"]
+    },
+    "topaz": {
+      "base": ["poised", "keel"]
+    },
+    "aven": {
+      "base": ["keel"]
+    }
+  },
+  "buff_removals": {
+    "robin": {
+      "ult": "journey",
+      "base": "fleet"
+    },
+    "feixiao": {
+      "base": "fleet"
+    },
+    "topaz": {
+      "base": "fleet"
+    }
+  },
+  "stat_replacements": {
+    "robin": {
+      "base_atk": 1073,
+      "atk": 3910
+    }
+  },
+  "name": "Poised/Keel",
+  "cost": 0
+}
