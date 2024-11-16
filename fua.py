@@ -183,8 +183,8 @@ def team_damage(base_data, upgrade_data, attack_data):
     "name": upgrade_data["name"],
   }
 
-teams_folder = "data/teams"
-patterns_folder = "data/patterns"
+teams_folder = "fua_data/teams"
+patterns_folder = "fua_data/patterns"
 
 def team_damages():
   damages = []
@@ -194,7 +194,7 @@ def team_damages():
     pattern_data = json.load(file)
   for filename in os.listdir(teams_folder):
     if filename != "base_team.json":
-      with open(f'data/teams/{filename}', 'r') as file:
+      with open(f'fua_data/teams/{filename}', 'r') as file:
         upgrade_data = json.load(file)
       damages.append(team_damage(copy.deepcopy(base_data), upgrade_data, pattern_data))
   return damages
