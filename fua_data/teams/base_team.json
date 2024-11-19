@@ -8,12 +8,14 @@
       "skill_extra": 0,
       "ult_scaling": 700,
       "ult_extra": 0,
+      "technique_scaling": 200,
+      "technique_extra": 0,
       "extra_mult": 0,
     
-      "atk": 3283,
+      "atk": 3239,
       "scaling_attr": "atk",
-      "crit_dmg": 113.5,
-      "crit_rate": 89.8,
+      "crit_dmg": 100.5,
+      "crit_rate": 98.9,
       "elemental_dmg_mult": 38.8,
       "all_type_dmg_mult": 0,
       "def_shred": 0,
@@ -153,6 +155,12 @@
     "windfall": {
       "all_type_dmg_mult": 150,
       "crit_dmg": 25
+    },
+    "unnerved": {
+      "crit_dmg": 15
+    },
+    "stormborn": {
+      "crit_rate": 100
     }
   },
   "buff_applications": {
@@ -161,7 +169,9 @@
       "fua": ["formshift", "duran_fua", "proof"],
       "concerto": ["concerto"],
       "concerto_fua": ["flourish"],
-      "concerto_ult": ["valorous", "formshift", "duran_fua", "proof", "flourish"]
+      "concerto_ult": ["valorous", "formshift", "duran_fua", "proof", "flourish"],
+      "unnerved": ["unnerved"],
+      "technique": ["stormborn"]
     },
     "topaz": {
       "base": ["duran", "duran_fua", "proof", "swordplay", "duke_2", "duke_4", "aria", "tonal", "fleet", "unjust_debuff"],
@@ -169,18 +179,21 @@
       "concerto": ["concerto"],
       "concerto_fua": ["flourish"],
       "concerto_basic": ["flourish"],
-      "windfall": ["windfall"]
+      "windfall": ["windfall"],
+      "unnerved": ["unnerved"]
     },
     "robin": {
-      "base": ["fleet", "unjust_debuff"],
+      "base": ["fleet", "unjust_debuff", "tonal"],
       "ult": ["journey"],
-      "concerto": ["concerto"]
+      "concerto": ["concerto"],
+      "unnerved": ["unnerved"]
     },
     "aven": {
       "base": ["duran", "aria", "tonal", "unjust", "leverage", "unjust_debuff"],
       "fua": ["duran_fua", "proof", "duke_2"],
       "concerto": ["concerto"],
-      "concerto_fua": ["flourish"]
+      "concerto_fua": ["flourish"],
+      "unnerved": ["unnerved"]
     }
   }
 }

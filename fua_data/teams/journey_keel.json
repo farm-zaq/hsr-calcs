@@ -1,18 +1,15 @@
 {
   "buffs": {
-    "poised": {
-      "crit_dmg": 20
-    },
     "keel": {
       "crit_dmg": 10
     }
   },
   "buff_applications": {
     "feixiao": {
-      "base": ["poised", "keel"]
+      "base": ["keel"]
     },
     "topaz": {
-      "base": ["poised", "keel"]
+      "base": ["keel"]
     },
     "aven": {
       "base": ["keel"]
@@ -20,7 +17,6 @@
   },
   "buff_removals": {
     "robin": {
-      "ult": "journey",
       "base": "fleet"
     },
     "feixiao": {
@@ -32,10 +28,9 @@
   },
   "stat_replacements": {
     "robin": {
-      "base_atk": 1073,
-      "atk": 4065
+      "atk": 4203
     }
   },
-  "name": "Psd/Keel/Boots",
+  "name": "Jrny/Keel/Boots",
   "cost": 0
 }

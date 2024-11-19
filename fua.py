@@ -2,8 +2,6 @@ import copy
 import json
 import os
 
-#TODO": technique
-#TODO: Unnerved
 #TODO: robin basic
 #TODO: Cruise atk, CR
 
