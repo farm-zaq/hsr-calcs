@@ -150,6 +150,8 @@ def calculate_character_damage(base_data, upgrade_data, attack_data, name):
     for buff_profile in attacks[attack_type]:
       attack_dmg = calculate_attack_damage(stats, buffs, attack_type, buff_profile)
       attack_dmg_sum = attack_dmg * attacks[attack_type][buff_profile]
+      print(buff_profile)
+      print(attack_dmg_sum)
       damage += attack_dmg_sum
   return damage
 
