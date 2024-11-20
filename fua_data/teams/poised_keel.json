@@ -1,7 +1,7 @@
 {
   "buffs": {
     "poised": {
-      "crit_dmg": 24
+      "crit_dmg": 20
     },
     "keel": {
       "crit_dmg": 10
@@ -33,7 +33,7 @@
   "stat_replacements": {
     "robin": {
       "base_atk": 1073,
-      "atk": 4108
+      "atk": 4065
     }
   },
   "name": "Psd/Keel/Boots",
