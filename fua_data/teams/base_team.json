@@ -183,7 +183,7 @@
       "unnerved": ["unnerved"]
     },
     "robin": {
-      "base": ["fleet", "unjust_debuff", "tonal"],
+      "base": ["fleet", "unjust_debuff", "aria"],
       "ult": ["journey"],
       "concerto": ["concerto"],
       "unnerved": ["unnerved"]
